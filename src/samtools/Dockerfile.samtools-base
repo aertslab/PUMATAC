@@ -1,0 +1,35 @@
+FROM debian:bullseye-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+    apt-get upgrade -y --no-install-recommends && \
+    apt-get install -y --reinstall ca-certificates && \
+    apt-get install -y --no-install-recommends \
+        cmake \
+        make \
+        mawk \
+        gcc \
+        libbz2-dev \
+        liblzma-dev \
+        libdeflate-dev \
+        bzip2 \
+        pigz \
+        curl \
+        procps \
+        less
+
+# zlib-ng
+ENV ZLIBNG 2.0.6
+RUN curl -L -o /tmp/zlib-ng-${ZLIBNG}.tar.gz https://github.com/zlib-ng/zlib-ng/archive/refs/tags/${ZLIBNG}.tar.gz && \
+    cd /tmp && tar xvf zlib-ng-${ZLIBNG}.tar.gz && \
+    cd zlib-ng-${ZLIBNG} && \
+    cmake -DZLIB_COMPAT=ON -DINSTALL_UTILS=ON . && \
+    cmake --build . --config Release && \
+    ctest --verbose -C Release && \
+    cmake --build . --target install && \
+    cd .. && rm -r zlib-ng-${ZLIBNG}*
+
+RUN rm -rf /var/cache/apt/* && \
+    rm -rf /var/lib/apt/lists/* && \
+    ldconfig
+
