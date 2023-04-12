@@ -6,124 +6,18 @@ A repository of pipelines for single-cell data analysis in Nextflow DSL2.
 |ATACflow| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow|
 
 
-**Full documentation** is available on `Read the Docs <https://vsn-pipelines.readthedocs.io/en/latest/>`_, or take a look at the `Quick Start <https://vsn-pipelines.readthedocs.io/en/latest/getting-started.html#quick-start>`_ guide.
-
-This main repo contains multiple workflows for analyzing single cell transcriptomics data, and depends on a number of tools, which are organized into subfolders within the ``src/`` directory.
-The VIB-Singlecell-NF_ organization contains this main repo along with a collection of example runs (`VSN-Pipelines-examples <https://vsn-pipelines-examples.readthedocs.io/en/latest/>`_).
-Currently available workflows are listed below.
 
 If ATACflow is useful for your research, consider citing:
 
 - ATACflow All Versions (latest): `10.5281/zenodo.7764892 <https://zenodo.org/record/7764892>`_.
 
-Raw Data Processing Workflows
------------------------------
-
-These are set up to run Cell Ranger and DropSeq pipelines.
-
-.. list-table:: Raw Data Processing Workflows
-    :widths: 15 10 30
-    :header-rows: 1
-
-    * - Pipeline / Entrypoint
-      - Purpose
-      - Documentation
-    * - cellranger
-      - Process 10x Chromium data
-      - cellranger_
-    * - demuxlet_freemuxlet
-      - Demultiplexing
-      - demuxlet_freemuxlet_
-    * - nemesh
-      - Process Drop-seq data
-      - nemesh_
-
-.. _cellranger: https://vsn-pipelines.readthedocs.io/en/latest/pipelines.html#cellranger
-.. _demuxlet_freemuxlet: https://vsn-pipelines.readthedocs.io/en/develop/pipelines.html#demuxlet-freemuxlet
-.. _nemesh: https://vsn-pipelines.readthedocs.io/en/develop/pipelines.html#nemesh
-
-
-Single Sample Workflows
------------------------
-
-The **Single Sample Workflows** perform a "best practices" scRNA-seq analysis. Multiple samples can be run in parallel, treating each sample separately.
-
-.. list-table:: Single Sample Workflows
-    :header-rows: 1
-
-    * - Pipeline / Entrypoint
-      - Purpose
-      - Documentation
-    * - single_sample
-      - Independent samples
-      - |single_sample|
-    * - single_sample_scenic
-      - Ind. samples + SCENIC
-      - |single_sample_scenic|
-    * - scenic
-      - SCENIC GRN inference
-      - |scenic|
-    * - scenic_multiruns
-      - SCENIC run multiple times
-      - |scenic_multiruns|
-    * - single_sample_scenic_multiruns
-      - Ind. samples + multi-SCENIC
-      - |single_sample_scenic_multiruns|
-    * - single_sample_scrublet
-      - Ind. samples + Scrublet
-      - |single_sample_scrublet|
-    * - decontx
-      - DecontX
-      - |decontx|
-    * - single_sample_decontx
-      - Ind. samples + DecontX
-      - |single_sample_decontx|
-    * - single_sample_decontx_scrublet
-      - Ind. samples + DecontX + Scrublet
-      - |single_sample_decontx_scrublet|
-
-
-Sample Aggregation Workflows
-----------------------------
-
-**Sample Aggregation Workflows**: perform a "best practices" scRNA-seq analysis on a merged and batch-corrected group of samples. Available batch correction methods include BBKNN, mnnCorrect, and Harmony.
-
-.. list-table:: Sample Aggregation Pipelines
-    :widths: 15 10 30
-    :header-rows: 1
-
-    * - Pipeline / Entrypoint
-      - Purpose
-      - Documentation
-    * - bbknn
-      - Sample aggregation + BBKNN
-      - |bbknn|
-    * - bbknn_scenic
-      - BBKNN + SCENIC
-      - |bbknn_scenic|
-    * - harmony
-      - Sample aggregation + Harmony
-      - |harmony|
-    * - harmony_scenic
-      - Harmony + SCENIC
-      - |harmony_scenic|
-    * - mnncorrect
-      - Sample aggregation + mnnCorrect
-      - |mnncorrect|
-
-
-----
-
-In addition, the pySCENIC_ implementation of the SCENIC_ workflow is integrated here and can be run in conjunction with any of the above workflows.
-The output of each of the main workflows is a loom_-format file, which is ready for import into the interactive single-cell web visualization tool SCope_.
-In addition, data is also output in h5ad format, and reports are generated for the major pipeline steps.
-
-scATAC-seq workflows
---------------------
 
 Single cell ATAC-seq processing steps are now included in VSN Pipelines.
 Currently, a preprocesing workflow is available, which will take fastq inputs, apply barcode correction, read trimming, bwa mapping, and output bam and fragments files for further downstream analysis.
 See `here <https://vsn-pipelines.readthedocs.io/en/latest/scatac-seq.html>`_ for complete documentation.
+
+
+Full tutorial under construction.
 
 
 .. |VSN-Pipelines| image:: https://img.shields.io/github/v/release/vib-singlecell-nf/vsn-pipelines
