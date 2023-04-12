@@ -1,9 +1,9 @@
-VSN-Pipelines
+ATACflow
 ==============
 
 A repository of pipelines for single-cell data analysis in Nextflow DSL2.
 
-|VSN-Pipelines| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow|
+|ATACflow| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow|
 
 
 **Full documentation** is available on `Read the Docs <https://vsn-pipelines.readthedocs.io/en/latest/>`_, or take a look at the `Quick Start <https://vsn-pipelines.readthedocs.io/en/latest/getting-started.html#quick-start>`_ guide.
@@ -12,9 +12,9 @@ This main repo contains multiple workflows for analyzing single cell transcripto
 The VIB-Singlecell-NF_ organization contains this main repo along with a collection of example runs (`VSN-Pipelines-examples <https://vsn-pipelines-examples.readthedocs.io/en/latest/>`_).
 Currently available workflows are listed below.
 
-If VSN-Pipelines is useful for your research, consider citing:
+If ATACflow is useful for your research, consider citing:
 
-- VSN-Pipelines All Versions (latest): `10.5281/zenodo.3703108 <https://doi.org/10.5281/zenodo.3703108>`_.
+- ATACflow All Versions (latest): `10.5281/zenodo.7764892 <https://zenodo.org/record/7764892>`_.
 
 Raw Data Processing Workflows
 -----------------------------
