@@ -52,7 +52,7 @@ def resolveParams(Map params, boolean verbose) {
 
 def includeConfig(Map params, String configRelativeFilePath) {
     def repoFilePath = workflow.scriptFile.getParent()
-    def isMainRepo = repoFilePath.getName() == "vsn-pipelines"
+    def isMainRepo = repoFilePath.getName() == "ATACflow"
     def config = new ConfigParser().setBinding([params: params])
     def co = new ConfigObject()
     def toolBaseDir = isMainRepo ? repoFilePath.toRealPath().toString() : repoFilePath.getParent().getParent().toRealPath().toString()
