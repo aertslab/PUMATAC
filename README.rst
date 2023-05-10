@@ -1,15 +1,15 @@
-ATACflow
+PUMATAC
 ==============
 
 A repository of pipelines for single-cell data analysis in Nextflow DSL2.
 
-|ATACflow| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow|
+|PUMATAC| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow|
 
 
 
-If ATACflow is useful for your research, consider citing:
+If PUMATAC is useful for your research, consider citing:
 
-- ATACflow All Versions (latest): `10.5281/zenodo.7764892 <https://zenodo.org/record/7764892>`_.
+- PUMATAC All Versions (latest): `10.5281/zenodo.7764892 <https://zenodo.org/record/7764892>`_.
 
 
 Single cell ATAC-seq processing steps are now included in VSN Pipelines.
