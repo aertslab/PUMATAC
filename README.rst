@@ -24,7 +24,7 @@ Full tutorial under construction.
     :target: https://github.com/vib-singlecell-nf/vsn-pipelines/releases
     :alt: GitHub release (latest by date)
     
-.. |ATACflow| image:: https://img.shields.io/github/v/release/vib-singlecell-nf/vsn-pipelines
+.. |PUMATAC| image:: https://img.shields.io/github/v/release/vib-singlecell-nf/vsn-pipelines
     :target: https://github.com/aertslab/ATACflow/releases
     :alt: GitHub release (latest by date)
 
