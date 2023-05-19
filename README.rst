@@ -1,18 +1,14 @@
 PUMATAC
 ==============
 
-A repository of pipelines for single-cell data analysis in Nextflow DSL2.
+A repository of pipelines for single-cell data analysis in Nextflow.
 
 |PUMATAC| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow|
-
-
 
 If PUMATAC is useful for your research, consider citing:
 
 - PUMATAC All Versions (latest): `10.5281/zenodo.7764892 <https://zenodo.org/record/7764892>`_.
 
-
-Single cell ATAC-seq processing steps are now included in VSN Pipelines.
 Currently, a preprocesing workflow is available, which will take fastq inputs, apply barcode correction, read trimming, bwa mapping, and output bam and fragments files for further downstream analysis.
 See `here <https://vsn-pipelines.readthedocs.io/en/latest/scatac-seq.html>`_ for complete documentation.
 
