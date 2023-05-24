@@ -20,14 +20,12 @@ include {
     SIMPLE_PUBLISH as PUBLISH_FRAGMENTS_INDEX;
     SIMPLE_PUBLISH as PUBLISH_BAM;
     SIMPLE_PUBLISH as PUBLISH_BAM_INDEX;
-    SIMPLE_PUBLISH as PUBLISH_MAPPING_SUMMARY;
 } from '../../src/utils/processes/utils.nf'
 
 // workflow imports:
 include {
     BWA_MAPPING_PE;
 } from './../../src/bwamaptools/main.nf'
-include {
     SAMTOOLS__MERGE_BAM;
 } from './../../src/samtools/processes/merge_bam.nf'
 include {
@@ -44,10 +42,6 @@ include {
     biorad_bc as bc_correct_biorad;
 } from './../../src/singlecelltoolkit/main.nf'
 
-// include mapping stats
-include {
-    BWAMAPTOOLS__MAPPING_SUMMARY as MAPPING_SUMMARY;
-} from './../../src/bwamaptools/processes/mapping_summary.nf' params(params)
 
 //////////////////////////////////////////////////////
 //  Define the workflow
@@ -167,18 +161,14 @@ workflow mapping {
 
         // merge samples with multiple files:
         bam_merged = SAMTOOLS__MERGE_BAM(aligned_bam_size_split.to_merge)
-
+        
         // re-combine with single files:
         bam_merged.mix(aligned_bam_size_split.no_merge.map { it -> tuple(it[0], *it[1]) })
            .set { bam }
-
+           
         // publish merged BAM files or only BAM file per sample:
         PUBLISH_BAM(bam.map{ it -> tuple(it[0..1]) }, '.bwa.out.possorted.bam', 'bam')
         PUBLISH_BAM_INDEX(bam.map{ it -> tuple(it[0],it[2]) }, '.bwa.out.possorted.bam.bai', 'bam')
-
-        // publish mapping stats
-        MAPPING_SUMMARY(bam)
-        PUBLISH_MAPPING_SUMMARY(MAPPING_SUMMARY.out, '.mapping_stats.tsv', 'reports/mapping_stats')
 
         // generate a fragments file:
         fragments = BAM_TO_FRAGMENTS(bam)
