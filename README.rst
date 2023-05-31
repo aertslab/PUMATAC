@@ -2,7 +2,7 @@ PUMATAC
 ==============
 Pipeline for Universal Mapping of ATAC-seq
 
-|PUMATAC| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow|
+|PUMATAC| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow| |Tutorial|
 
 A detailed, step-by-step tutorial with examples is available [here](https://github.com/aertslab/PUMATAC_tutorial).
 
@@ -16,6 +16,10 @@ See `here <https://vsn-pipelines.readthedocs.io/en/latest/scatac-seq.html>`_ for
 .. |VSN-Pipelines| image:: https://img.shields.io/github/v/release/vib-singlecell-nf/vsn-pipelines
     :target: https://github.com/vib-singlecell-nf/vsn-pipelines/releases
     :alt: GitHub release (latest by date)
+
+.. |VSN-Pipelines| image:: https://img.shields.io/github/v/release/vib-singlecell-nf/vsn-pipelines
+    :target: https://github.com/aertslab/PUMATAC_tutorial
+    :alt: Tutorial
     
 .. |PUMATAC| image:: https://img.shields.io/github/v/release/vib-singlecell-nf/vsn-pipelines
     :target: https://github.com/aertslab/ATACflow/releases
