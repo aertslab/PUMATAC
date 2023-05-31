@@ -4,7 +4,7 @@ Pipeline for Universal Mapping of ATAC-seq
 
 |PUMATAC| |ReadTheDocs| |Zenodo| |Gitter| |Nextflow|
 
-A detailed, step-by-step tutorial with examples is available [here](https://github.com/aertslab/PUMATAC_tutorial).
+A detailed, step-by-step tutorial with examples is available `here <https://github.com/aertslab/PUMATAC_tutorial>`_.
 
 If PUMATAC is useful for your research, consider citing:
 
