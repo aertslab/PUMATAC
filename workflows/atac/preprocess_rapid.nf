@@ -8,9 +8,6 @@ include {
 include {
     TRIMGALORE__TRIM;
 } from './../../src/trimgalore/processes/trim.nf'
-include {
-    FASTP__ADAPTER_TRIMMING as FASTP__TRIM;
-} from './../../src/fastp/processes/adapter_trimming.nf'
 
 include {
     SIMPLE_PUBLISH as PUBLISH_FASTQS_TRIMLOG_PE1;
@@ -130,10 +127,6 @@ workflow adapter_trimming {
                 fastq_dex_trim = TRIMGALORE__TRIM(fastq_dex);
                 PUBLISH_FASTQS_TRIMLOG_PE1(fastq_dex_trim.map{ it -> tuple(it[0], it[3]) }, '.R1.trimming_report.txt', 'reports/trim');
                 PUBLISH_FASTQS_TRIMLOG_PE2(fastq_dex_trim.map{ it -> tuple(it[0], it[4]) }, '.R2.trimming_report.txt', 'reports/trim');
-                break;
-            case 'fastp':
-                fastq_dex_trim = FASTP__TRIM(fastq_dex);
-                PUBLISH_FASTQS_TRIMLOG_FASTP(fastq_dex_trim.map{ it -> tuple(it[0], it[3]) }, '.fastp.trimming_report.html', 'reports/trim');
                 break;
         }
 

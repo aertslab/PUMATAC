@@ -12,15 +12,6 @@ include {
     BWAMAPTOOLS__MAPPING_SUMMARY as MAPPING_SUMMARY;
 } from './processes/mapping_summary.nf' params(params)
 include {
-    PICARD__MARK_DUPLICATES_AND_SORT;
-} from './../../src/gatk/processes/mark_duplicates.nf' params(params)
-include {
-    PICARD__ESTIMATE_LIBRARY_COMPLEXITY;
-} from './../../src/gatk/processes/estimate_library_complexity.nf' params(params)
-include {
-    GATK__MARK_DUPLICATES_SPARK;
-} from './../../src/gatk/processes/mark_duplicates_spark.nf' params(params)
-include {
     SIMPLE_PUBLISH as PUBLISH_BAM;
     SIMPLE_PUBLISH as PUBLISH_BAM_INDEX;
     SIMPLE_PUBLISH as PUBLISH_MAPPING_SUMMARY;
@@ -85,37 +76,3 @@ workflow BWA_MAPPING_PE {
     emit:
         aligned_bam
 }
-
-
-workflow MARK_DUPLICATES {
-
-    take:
-        data // a channel of [val(sampleId), path(bam) ]
-        mark_duplicates_method
-
-    main:
-
-        switch(mark_duplicates_method) {
-            case 'MarkDuplicates':
-                dup_marked_bam = PICARD__MARK_DUPLICATES_AND_SORT(data)
-                PUBLISH_MARKDUPS_METRICS(dup_marked_bam.map{it -> tuple(it[0], it[3])}, '.mark_duplicates_metrics.txt', 'reports/mark_duplicates')
-                break
-            case 'MarkDuplicatesSpark':
-                dup_marked_bam = GATK__MARK_DUPLICATES_SPARK(data)
-                break
-        }
-
-        MAPPING_SUMMARY(dup_marked_bam.map { it -> tuple(it[0..2]) })
-        PICARD__ESTIMATE_LIBRARY_COMPLEXITY(data)
-
-        // publish output:
-        PUBLISH_BAM(dup_marked_bam.map{it -> tuple(it[0], it[1])}, '.bwa.out.possorted.bam', 'bam')
-        PUBLISH_BAM_INDEX(dup_marked_bam.map{it -> tuple(it[0], it[2])}, '.bwa.out.possorted.bam.bai', 'bam')
-        PUBLISH_LIBRARY_METRICS(PICARD__ESTIMATE_LIBRARY_COMPLEXITY.out, '.library_complexity_metrics.txt', 'reports/mark_duplicates')
-        PUBLISH_MAPPING_SUMMARY(MAPPING_SUMMARY.out, '.mapping_stats.tsv', 'reports/mapping_stats')
-
-    emit:
-        dup_marked_bam.map { it -> tuple(it[0..2]) }
-
-}
-

@@ -5,7 +5,6 @@ nextflow.enable.dsl=2
 include { SCTK__BARCODE_CORRECTION; } from './processes/barcode_correction.nf'
 include { SCTK__BARCODE_10X_SCATAC_FASTQ; } from './processes/barcode_10x_scatac_fastqs.nf'
 include { SCTK__EXTRACT_AND_CORRECT_BIORAD_BARCODE; } from './processes/extract_and_correct_biorad_barcode.nf'
-include { BAP__BIORAD_DEBARCODE; } from './../bap/workflows/bap_debarcode.nf'
 
 include {
     SIMPLE_PUBLISH as PUBLISH_BC_STATS;
@@ -71,9 +70,6 @@ workflow biorad_bc {
     main:
 
         /* run BioRad barcode correction and debarcoding separately: */
-        // using BAP:
-        //fastq_dex_br = BAP__BIORAD_DEBARCODE(data.biorad.map{ it -> tuple(it[0], it[2], it[4]) })
-
         // using singlecelltoolkit:
         fastq_dex_br = SCTK__EXTRACT_AND_CORRECT_BIORAD_BARCODE(data_biorad.map{ it -> tuple(it[0], it[1], it[2], it[4]) })
         PUBLISH_BR_BC_STATS(fastq_dex_br.map { it -> tuple(it[0], it[3]) }, '.corrected.bc_stats.log', 'reports/barcode')
