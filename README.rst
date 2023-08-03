@@ -9,7 +9,7 @@ A detailed, step-by-step tutorial with examples is available `here <https://gith
 If PUMATAC is useful for your research, consider citing:
 
 - PUMATAC All Versions (latest): `10.5281/zenodo.7764892 <https://doi.org/10.5281/zenodo.7764884>`_.
-- Our Nature Biotechnology article: `https://doi.org/10.1038/s41587-023-01881-x`_.
+- Our Nature Biotechnology article: `10.1038/s41587-023-01881-x <https://doi.org/10.1038/s41587-023-01881-x>`_.
 
 Currently, a preprocesing workflow is available, which will take fastq inputs, apply barcode correction, read trimming, bwa mapping, and output bam and fragments files for further downstream analysis.
 
