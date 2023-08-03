@@ -9,9 +9,9 @@ A detailed, step-by-step tutorial with examples is available `here <https://gith
 If PUMATAC is useful for your research, consider citing:
 
 - PUMATAC All Versions (latest): `10.5281/zenodo.7764892 <https://doi.org/10.5281/zenodo.7764884>`_.
+- Our Nature Biotechnology article: `https://doi.org/10.1038/s41587-023-01881-x`_.
 
 Currently, a preprocesing workflow is available, which will take fastq inputs, apply barcode correction, read trimming, bwa mapping, and output bam and fragments files for further downstream analysis.
-See `here <https://vsn-pipelines.readthedocs.io/en/latest/scatac-seq.html>`_ for complete documentation.
 
 .. |VSN-Pipelines| image:: https://img.shields.io/github/v/release/vib-singlecell-nf/vsn-pipelines
     :target: https://github.com/vib-singlecell-nf/vsn-pipelines/releases
