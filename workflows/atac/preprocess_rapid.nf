@@ -167,10 +167,10 @@ workflow mapping {
 
         // publish merged BAM files or only BAM file per sample:
         PUBLISH_BAM(bam.map{ it -> tuple(it[0..1]) }, '.bwa.out.possorted.bam', 'bam')
-        PUBLISH_BAM_INDEX(bam.map{ it -> tuple(it[0],it[2]) }, '.bwa.out.possorted.bam.bai', 'bam')
+        PUBLISH_BAM_INDEX(bam.map{ it -> tuple(it[0], it[1] + '.bai') }, '.bwa.out.possorted.bam.bai', 'bam')
 
         // publish mapping stats
-        MAPPING_SUMMARY(bam)
+        MAPPING_SUMMARY(bam.map( it -> tuple(it[0], it[1], it[1] + '.bai')))
         PUBLISH_MAPPING_SUMMARY(MAPPING_SUMMARY.out, '.mapping_stats.tsv', 'reports/mapping_stats')
 
         // generate a fragments file:
