@@ -90,7 +90,7 @@ workflow ATAC_PREPROCESS_RAPID {
         /* HyDrop ATAC
            extract barcode and correct */
         // HyDrop v0
-        SCTK__EXTRACT_HYDROP_ATAC_BARCODE_v2(data.hydrop_v0, 'v0') \
+        SCTK__EXTRACT_HYDROP_ATAC_BARCODE_v0(data.hydrop_v0, 'v0') \
             | bc_correct_hydrop_v0
         // HyDrop v1
         SCTK__EXTRACT_HYDROP_ATAC_BARCODE_v1(data.hydrop_v1, 'v1') \
