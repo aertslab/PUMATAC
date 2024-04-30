@@ -6,7 +6,7 @@ toolParams = params.tools.singlecelltoolkit
 
 process SCTK__EXTRACT_HYDROP_ATAC_BARCODE {
 
-    container toolParams.container
+    container "vibsinglecellnf/singlecelltoolkit:2024-04-09-62429e9"
     label 'compute_resources__default'
 
     input:
